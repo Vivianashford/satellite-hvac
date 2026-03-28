@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC Business Valuation Calculator | Free Tool</title>
+<meta name="description" content="Calculate what your HVAC business is worth. HVAC-specific multiples, maintenance contract adjustments, and commercial mix analysis.">
+<meta name="keywords" content="hvac business valuation calculator, sell hvac business, hvac company worth, hvac business value">
+<link rel="canonical" href="https://vivianashford.github.io/satellite-hvac/calculator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SDMM90P63D"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SDMM90P63D');</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "HVAC Business Valuation Calculator",
+  "description": "Calculate the estimated value of your HVAC business based on revenue, maintenance contracts, commercial mix, and owner dependency.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "The Arena Partners", "url": "https://thearenapartners.com" }
+}
+</script>
+</head>
+<body style="margin:0;padding:0;background:#0a0a0a;color:#f0f0f0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;">
+
+<!-- HEADER -->
+<section style="padding:60px 24px 32px;max-width:680px;margin:0 auto;text-align:center;">
+  <div style="display:inline-block;padding:6px 16px;border:1px solid #2a2a2a;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;margin-bottom:24px;">HVAC Valuation Calculator</div>
+  <h1 style="font-size:clamp(28px,4.5vw,42px);font-weight:900;letter-spacing:-0.03em;margin:0 0 12px;line-height:1.15;">Calculate Your <span style="color:#C9A84C;">HVAC Company's Value</span></h1>
+  <p style="color:#999;margin:0 0 8px;font-size:17px;">Answer 7 questions. Get your estimated valuation range in 60 seconds.</p>
+</section>
+
+<!-- CALCULATOR -->
+<section style="padding:0 24px 64px;max-width:680px;margin:0 auto;">
+  <div id="calculator" style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:2px;padding:40px 32px;">
+
+    <!-- PROGRESS -->
+    <div style="margin-bottom:40px;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+        <span id="stepLabel" style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C9A84C;">Step 1 of 7</span>
+        <span id="stepPercent" style="font-size:12px;font-weight:600;color:#666;">14%</span>
+      </div>
+      <div style="height:3px;background:#2a2a2a;border-radius:2px;overflow:hidden;">
+        <div id="progressBar" style="height:100%;background:#C9A84C;width:14%;transition:width 0.4s ease;border-radius:2px;"></div>
+      </div>
+    </div>
+
+    <!-- STEPS -->
+    <div id="step1" class="calc-step">
+      <label style="display:block;font-size:18px;font-weight:700;margin-bottom:8px;">What's your primary service mix?</label>
+      <p style="color:#666;font-size:14px;margin:0 0 20px;">Select the option that best describes your business.</p>
+      <select id="serviceMix" style="width:100%;box-sizing:border-box;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:'Inter',sans-serif;min-height:48px;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22><path fill=%22%23999%22 d=%22M6 8L0 0h12z%22/></svg>');background-repeat:no-repeat;background-position:right 16px center;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'">
+        <option value="" disabled selected>Select your service mix</option>
+        <option value="res_install">Residential Install</option>
+        <option value="res_service">Residential Service</option>
+        <option value="commercial">Commercial</option>
+        <option value="mixed">Mixed Residential / Commercial</option>
+        <option value="new_construction">New Construction</option>
+      </select>
+    </div>
+
+    <div id="step2" class="calc-step" style="display:none;">
+      <label style="display:block;font-size:18px;font-weight:700;margin-bottom:8px;">What's your annual revenue?</label>
+      <p style="color:#666;font-size:14px;margin:0 0 20px;">Your total revenue from the last 12 months.</p>
+      <div style="position:relative;">
+        <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#666;font-size:17px;font-weight:600;">$</span>
+        <input type="text" id="revenue" inputmode="numeric" placeholder="5,000,000" style="width:100%;box-sizing:border-box;padding:14px 16px 14px 32px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:'JetBrains Mono',monospace;min-height:48px;outline:none;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'">
+      </div>
+    </div>
+
+    <div id="step3" class="calc-step" style="display:none;">
+      <label style="display:block;font-size:18px;font-weight:700;margin-bottom:8px;">What's your EBITDA margin?</label>
+      <p style="color:#666;font-size:14px;margin:0 0 4px;">EBITDA = your profit after all operating expenses, before taxes, interest, and depreciation.</p>
+      <p style="color:#666;font-size:14px;margin:0 0 20px;">HVAC companies typically run 10-20%.</p>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <input type="range" id="ebitdaMargin" min="5" max="30" value="15" style="flex:1;height:6px;-webkit-appearance:none;appearance:none;background:#2a2a2a;border-radius:3px;outline:none;cursor:pointer;" oninput="document.getElementById('ebitdaVal').textContent=this.value+'%'">
+        <span id="ebitdaVal" style="font-family:'JetBrains Mono',monospace;font-weight:500;color:#C9A84C;min-width:48px;text-align:right;">15%</span>
+      </div>
+    </div>
+
+    <div id="step4" class="calc-step" style="display:none;">
+      <label style="display:block;font-size:18px;font-weight:700;margin-bottom:8px;">What % of revenue comes from maintenance contracts?</label>
+      <p style="color:#666;font-size:14px;margin:0 0 20px;">This is the #1 driver of HVAC valuation. Include all recurring service agreements.</p>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <input type="range" id="maintenancePct" min="0" max="60" value="15" style="flex:1;height:6px;-webkit-appearance:none;appearance:none;background:#2a2a2a;border-radius:3px;outline:none;cursor:pointer;" oninput="document.getElementById('maintVal').textContent=this.value+'%'">
+        <span id="maintVal" style="font-family:'JetBrains Mono',monospace;font-weight:500;color:#C9A84C;min-width:48px;text-align:right;">15%</span>
+      </div>
+    </div>
+
+    <div id="step5" class="calc-step" style="display:none;">
+      <label style="display:block;font-size:18px;font-weight:700;margin-bottom:8px;">How many technicians do you employ?</label>
+      <p style="color:#666;font-size:14px;margin:0 0 20px;">Full-time HVAC technicians (not office staff).</p>
+      <input type="text" id="techCount" inputmode="numeric" placeholder="8" style="width:100%;box-sizing:border-box;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:'JetBrains Mono',monospace;min-height:48px;outline:none;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'">
+    </div>
+
+    <div id="step6" class="calc-step" style="display:none;">
+      <label style="display:block;font-size:18px;font-weight:700;margin-bottom:8px;">What's your role in the business?</label>
+      <p style="color:#666;font-size:14px;margin:0 0 20px;">Be honest. Buyers will figure this out during due diligence.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;" id="ownerRoleGroup">
+        <label style="display:flex;align-items:center;gap:14px;padding:16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;cursor:pointer;min-height:48px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#C9A84C'" onmouseout="if(!this.querySelector('input').checked)this.style.borderColor='#2a2a2a'">
+          <input type="radio" name="ownerRole" value="dependent" style="width:20px;height:20px;accent-color:#C9A84C;cursor:pointer;">
+          <div><span style="font-weight:600;font-size:15px;">I run daily operations</span><br><span style="color:#666;font-size:14px;">Estimates, emergency calls, vendor management - it's me</span></div>
+        </label>
+        <label style="display:flex;align-items:center;gap:14px;padding:16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;cursor:pointer;min-height:48px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#C9A84C'" onmouseout="if(!this.querySelector('input').checked)this.style.borderColor='#2a2a2a'">
+          <input type="radio" name="ownerRole" value="key_decisions" style="width:20px;height:20px;accent-color:#C9A84C;cursor:pointer;">
+          <div><span style="font-weight:600;font-size:15px;">I manage but make key decisions</span><br><span style="color:#666;font-size:14px;">Team handles daily work, but big calls go through me</span></div>
+        </label>
+        <label style="display:flex;align-items:center;gap:14px;padding:16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;cursor:pointer;min-height:48px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#C9A84C'" onmouseout="if(!this.querySelector('input').checked)this.style.borderColor='#2a2a2a'">
+          <input type="radio" name="ownerRole" value="independent" style="width:20px;height:20px;accent-color:#C9A84C;cursor:pointer;">
+          <div><span style="font-weight:600;font-size:15px;">Runs without me</span><br><span style="color:#666;font-size:14px;">I could take a month off and nothing would break</span></div>
+        </label>
+      </div>
+    </div>
+
+    <div id="step7" class="calc-step" style="display:none;">
+      <label style="display:block;font-size:18px;font-weight:700;margin-bottom:8px;">What's your commercial vs. residential split?</label>
+      <p style="color:#666;font-size:14px;margin:0 0 20px;">Drag the slider toward commercial to show your mix.</p>
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+        <span style="font-size:13px;font-weight:600;color:#999;">Residential</span>
+        <span style="font-size:13px;font-weight:600;color:#999;">Commercial</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <input type="range" id="commercialSplit" min="0" max="100" value="20" style="flex:1;height:6px;-webkit-appearance:none;appearance:none;background:#2a2a2a;border-radius:3px;outline:none;cursor:pointer;" oninput="document.getElementById('commVal').textContent=this.value+'% commercial'">
+        <span id="commVal" style="font-family:'JetBrains Mono',monospace;font-weight:500;color:#C9A84C;min-width:120px;text-align:right;font-size:15px;">20% commercial</span>
+      </div>
+    </div>
+
+    <!-- NAV BUTTONS -->
+    <div style="display:flex;gap:12px;margin-top:32px;">
+      <button id="prevBtn" onclick="prevStep()" style="display:none;padding:14px 24px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#999;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;min-height:48px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#C9A84C'" onmouseout="this.style.borderColor='#2a2a2a'">&larr; Back</button>
+      <button id="nextBtn" onclick="nextStep()" style="flex:1;padding:14px 32px;background:#C9A84C;color:#0a0a0a;font-size:17px;font-weight:700;font-family:'Inter',sans-serif;border:none;border-radius:2px;cursor:pointer;min-height:48px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 12px rgba(201,168,76,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">Next &rarr;</button>
+    </div>
+  </div>
+
+  <!-- RESULTS (hidden initially) -->
+  <div id="results" style="display:none;margin-top:32px;">
+
+    <!-- Valuation Card -->
+    <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:2px;padding:48px 32px;text-align:center;margin-bottom:24px;">
+      <p style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C9A84C;margin:0 0 8px;">Estimated Valuation Range</p>
+      <p id="valuationRange" style="font-family:'JetBrains Mono',monospace;font-size:clamp(32px,6vw,48px);font-weight:500;color:#f0f0f0;margin:0 0 8px;letter-spacing:-0.02em;">$0 - $0</p>
+      <p id="ebitdaDisplay" style="font-family:'JetBrains Mono',monospace;font-size:16px;color:#999;margin:0;">Based on estimated EBITDA of $0</p>
+
+      <!-- Gauge -->
+      <div style="margin:32px auto 0;max-width:400px;">
+        <div style="height:8px;background:#2a2a2a;border-radius:4px;position:relative;overflow:hidden;">
+          <div id="gaugeBar" style="height:100%;background:linear-gradient(90deg,#FF3B30,#C9A84C,#34C759);border-radius:4px;width:100%;"></div>
+          <div id="gaugeMarkerLow" style="position:absolute;top:-4px;width:3px;height:16px;background:#f0f0f0;border-radius:1px;left:30%;transition:left 0.5s;"></div>
+          <div id="gaugeMarkerHigh" style="position:absolute;top:-4px;width:3px;height:16px;background:#f0f0f0;border-radius:1px;left:60%;transition:left 0.5s;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:8px;">
+          <span style="font-size:11px;color:#666;">2.0x</span>
+          <span style="font-size:11px;color:#666;">5.0x</span>
+          <span style="font-size:11px;color:#666;">8.5x</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Breakdown -->
+    <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:2px;padding:32px;margin-bottom:24px;">
+      <p style="font-size:14px;font-weight:700;margin:0 0 24px;">Valuation Breakdown</p>
+
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #2a2a2a;">
+        <span style="color:#999;">Base Multiple (revenue-based)</span>
+        <span id="baseMultiple" style="font-family:'JetBrains Mono',monospace;font-weight:500;">0x</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #2a2a2a;">
+        <span style="color:#999;">Maintenance Contracts Adjustment</span>
+        <span id="maintAdj" style="font-family:'JetBrains Mono',monospace;font-weight:500;">0x</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #2a2a2a;">
+        <span style="color:#999;">Commercial Mix Adjustment</span>
+        <span id="commAdj" style="font-family:'JetBrains Mono',monospace;font-weight:500;">0x</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #2a2a2a;">
+        <span style="color:#999;">Owner Dependency Adjustment</span>
+        <span id="ownerAdj" style="font-family:'JetBrains Mono',monospace;font-weight:500;">0x</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #2a2a2a;">
+        <span style="color:#999;">Technician Count Adjustment</span>
+        <span id="techAdj" style="font-family:'JetBrains Mono',monospace;font-weight:500;">0x</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:16px 0 0;font-weight:700;">
+        <span style="color:#C9A84C;">Final Adjusted Multiple</span>
+        <span id="finalMultiple" style="font-family:'JetBrains Mono',monospace;font-weight:500;color:#C9A84C;">0x</span>
+      </div>
+    </div>
+
+    <!-- Helping / Hurting -->
+    <div style="display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:32px;">
+      <div id="helpingBox" style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:2px;padding:24px;">
+        <p style="font-size:14px;font-weight:700;color:#34C759;margin:0 0 12px;display:flex;align-items:center;gap:8px;">
+          <span style="display:inline-block;width:8px;height:8px;background:#34C759;border-radius:50%;"></span>
+          What's Helping Your Valuation
+        </p>
+        <ul id="helpingList" style="margin:0;padding:0 0 0 20px;color:#999;font-size:15px;"></ul>
+      </div>
+      <div id="hurtingBox" style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:2px;padding:24px;">
+        <p style="font-size:14px;font-weight:700;color:#FF3B30;margin:0 0 12px;display:flex;align-items:center;gap:8px;">
+          <span style="display:inline-block;width:8px;height:8px;background:#FF3B30;border-radius:50%;"></span>
+          What's Hurting Your Valuation
+        </p>
+        <ul id="hurtingList" style="margin:0;padding:0 0 0 20px;color:#999;font-size:15px;"></ul>
+      </div>
+    </div>
+
+    <!-- UPGRADE FORM: Name + Phone -->
+    <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:2px;padding:48px 32px;text-align:center;">
+      <p style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C9A84C;margin:0 0 16px;">Free Valuation Training</p>
+      <h2 style="font-size:clamp(22px,3.5vw,28px);font-weight:800;letter-spacing:-0.03em;margin:0 0 8px;line-height:1.2;">Want to Increase This Number Before You Sell?</h2>
+      <p style="color:#999;margin:0 0 32px;font-size:16px;">Get our 3-step training to maximize your HVAC company's exit value. Takes 10 minutes.</p>
+
+      <form id="upgradeForm" style="max-width:420px;margin:0 auto;">
+        <input type="hidden" name="source" value="satellite-hvac">
+        <input type="hidden" name="step" value="training-unlock">
+        <input type="hidden" id="upgradeEmail" name="email" value="">
+
+        <label for="fullName" style="display:block;text-align:left;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;margin-bottom:8px;">Full Name</label>
+        <input type="text" id="fullName" name="name" required autocomplete="name" placeholder="John Smith" style="width:100%;box-sizing:border-box;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:'Inter',sans-serif;min-height:48px;outline:none;margin-bottom:16px;transition:border-color 0.2s;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'">
+
+        <label for="phone" style="display:block;text-align:left;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;margin-bottom:8px;">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(555) 123-4567" style="width:100%;box-sizing:border-box;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:'Inter',sans-serif;min-height:48px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'">
+
+        <button type="submit" id="upgradeBtn" style="width:100%;margin-top:20px;padding:16px 32px;background:#C9A84C;color:#0a0a0a;font-size:17px;font-weight:700;font-family:'Inter',sans-serif;border:none;border-radius:2px;cursor:pointer;min-height:48px;transition:transform 0.15s,box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 12px rgba(201,168,76,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">Get My Free Valuation Training &rarr;</button>
+
+        <p style="font-size:14px;color:#666;margin:12px 0 0;">Free. No obligation. Takes 10 minutes.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding:32px 24px;max-width:680px;margin:0 auto;border-top:1px solid #2a2a2a;text-align:center;">
+  <p style="font-size:13px;color:#666;margin:0;">&copy; 2026 The Arena Partners. All rights reserved.</p>
+</footer>
+
+<script>
+// Get email from URL
+const params = new URLSearchParams(window.location.search);
+const email = params.get('email') || '';
+document.getElementById('upgradeEmail').value = email;
+
+let currentStep = 1;
+const totalSteps = 7;
+
+function showStep(n) {
+  for (let i = 1; i <= totalSteps; i++) {
+    const el = document.getElementById('step' + i);
+    if (el) el.style.display = i === n ? 'block' : 'none';
+  }
+  document.getElementById('stepLabel').textContent = 'Step ' + n + ' of ' + totalSteps;
+  const pct = Math.round((n / totalSteps) * 100);
+  document.getElementById('stepPercent').textContent = pct + '%';
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('prevBtn').style.display = n > 1 ? 'block' : 'none';
+  document.getElementById('nextBtn').textContent = n === totalSteps ? 'Calculate My Valuation →' : 'Next →';
+}
+
+function nextStep() {
+  if (currentStep === 1 && !document.getElementById('serviceMix').value) { document.getElementById('serviceMix').style.borderColor='#FF3B30'; return; }
+  if (currentStep === 2 && !parseRevenue()) { document.getElementById('revenue').style.borderColor='#FF3B30'; return; }
+  if (currentStep === 5 && !document.getElementById('techCount').value) { document.getElementById('techCount').style.borderColor='#FF3B30'; return; }
+  if (currentStep === 6 && !document.querySelector('input[name="ownerRole"]:checked')) return;
+  if (currentStep < totalSteps) { currentStep++; showStep(currentStep); }
+  else calculateValuation();
+}
+
+function prevStep() {
+  if (currentStep > 1) { currentStep--; showStep(currentStep); }
+}
+
+function parseRevenue() {
+  const raw = document.getElementById('revenue').value.replace(/[^0-9.]/g, '');
+  return parseFloat(raw) || 0;
+}
+
+// Format revenue input
+document.getElementById('revenue').addEventListener('input', function(e) {
+  let val = e.target.value.replace(/[^0-9]/g, '');
+  if (val) e.target.value = parseInt(val).toLocaleString();
+});
+
+function calculateValuation() {
+  const revenue = parseRevenue();
+  const ebitdaMargin = parseInt(document.getElementById('ebitdaMargin').value) / 100;
+  const maintenancePct = parseInt(document.getElementById('maintenancePct').value);
+  const techCount = parseInt(document.getElementById('techCount').value) || 0;
+  const ownerRole = document.querySelector('input[name="ownerRole"]:checked')?.value || 'dependent';
+  const commercialSplit = parseInt(document.getElementById('commercialSplit').value);
+
+  const ebitda = revenue * ebitdaMargin;
+
+  // Base multiple
+  let baseLow, baseHigh;
+  if (revenue < 1000000) { baseLow = 2.0; baseHigh = 3.0; }
+  else if (revenue < 3000000) { baseLow = 3.0; baseHigh = 5.0; }
+  else if (revenue < 5000000) { baseLow = 4.5; baseHigh = 6.0; }
+  else if (revenue < 10000000) { baseLow = 5.5; baseHigh = 7.5; }
+  else { baseLow = 6.5; baseHigh = 8.5; }
+
+  // Maintenance adjustment
+  let maintAdjust = 0;
+  if (maintenancePct < 10) maintAdjust = -0.5;
+  else if (maintenancePct < 20) maintAdjust = 0;
+  else if (maintenancePct < 30) maintAdjust = 0.5;
+  else maintAdjust = 1.0;
+
+  // Commercial mix
+  let commAdjust = 0;
+  if (commercialSplit === 0) commAdjust = -0.25;
+  else if (commercialSplit >= 80) commAdjust = 0.5;
+  else if (commercialSplit >= 20) commAdjust = 0.25;
+
+  // Owner dependency
+  let ownerAdjust = 0;
+  if (ownerRole === 'dependent') ownerAdjust = -1.0;
+  else if (ownerRole === 'key_decisions') ownerAdjust = -0.5;
+  else ownerAdjust = 0.5;
+
+  // Tech count
+  let techAdjust = 0;
+  if (techCount <= 3) techAdjust = -0.25;
+  else if (techCount <= 8) techAdjust = 0;
+  else if (techCount <= 15) techAdjust = 0.5;
+  else techAdjust = 0.75;
+
+  const totalAdj = maintAdjust + commAdjust + ownerAdjust + techAdjust;
+  const finalLow = Math.max(1.5, baseLow + totalAdj);
+  const finalHigh = Math.max(finalLow + 0.5, baseHigh + totalAdj);
+
+  const valLow = ebitda * finalLow;
+  const valHigh = ebitda * finalHigh;
+
+  // Display
+  document.getElementById('calculator').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+
+  document.getElementById('valuationRange').textContent = formatMoney(valLow) + ' - ' + formatMoney(valHigh);
+  document.getElementById('ebitdaDisplay').textContent = 'Based on estimated EBITDA of ' + formatMoney(ebitda);
+
+  const midBase = ((baseLow + baseHigh) / 2).toFixed(1);
+  document.getElementById('baseMultiple').textContent = baseLow.toFixed(1) + 'x - ' + baseHigh.toFixed(1) + 'x';
+  document.getElementById('maintAdj').textContent = formatAdj(maintAdjust);
+  document.getElementById('maintAdj').style.color = maintAdjust > 0 ? '#34C759' : maintAdjust < 0 ? '#FF3B30' : '#999';
+  document.getElementById('commAdj').textContent = formatAdj(commAdjust);
+  document.getElementById('commAdj').style.color = commAdjust > 0 ? '#34C759' : commAdjust < 0 ? '#FF3B30' : '#999';
+  document.getElementById('ownerAdj').textContent = formatAdj(ownerAdjust);
+  document.getElementById('ownerAdj').style.color = ownerAdjust > 0 ? '#34C759' : ownerAdjust < 0 ? '#FF3B30' : '#999';
+  document.getElementById('techAdj').textContent = formatAdj(techAdjust);
+  document.getElementById('techAdj').style.color = techAdjust > 0 ? '#34C759' : techAdjust < 0 ? '#FF3B30' : '#999';
+  document.getElementById('finalMultiple').textContent = finalLow.toFixed(1) + 'x - ' + finalHigh.toFixed(1) + 'x';
+
+  // Gauge markers
+  const gaugeMin = 2.0, gaugeMax = 8.5;
+  const lowPct = Math.min(100, Math.max(0, ((finalLow - gaugeMin) / (gaugeMax - gaugeMin)) * 100));
+  const highPct = Math.min(100, Math.max(0, ((finalHigh - gaugeMin) / (gaugeMax - gaugeMin)) * 100));
+  document.getElementById('gaugeMarkerLow').style.left = lowPct + '%';
+  document.getElementById('gaugeMarkerHigh').style.left = highPct + '%';
+
+  // Helping / Hurting lists
+  const helping = [];
+  const hurting = [];
+
+  if (maintAdjust > 0) helping.push('Strong maintenance contract base (+' + maintAdjust.toFixed(1) + 'x)');
+  if (maintAdjust < 0) hurting.push('Low maintenance contract revenue (' + maintAdjust.toFixed(1) + 'x)');
+  if (commAdjust > 0) helping.push('Commercial diversification (+' + commAdjust.toFixed(2) + 'x)');
+  if (commAdjust < 0) hurting.push('No commercial revenue (' + commAdjust.toFixed(2) + 'x)');
+  if (ownerAdjust > 0) helping.push('Owner-independent operations (+' + ownerAdjust.toFixed(1) + 'x)');
+  if (ownerAdjust < 0) hurting.push('Owner dependency (' + ownerAdjust.toFixed(1) + 'x)');
+  if (techAdjust > 0) helping.push('Strong technician team (+' + techAdjust.toFixed(2) + 'x)');
+  if (techAdjust < 0) hurting.push('Small technician team (' + techAdjust.toFixed(2) + 'x)');
+  if (revenue >= 5000000) helping.push('Revenue size commands premium multiples');
+  if (revenue < 1000000) hurting.push('Revenue below $1M limits buyer pool');
+
+  if (helping.length === 0) helping.push('No major positive adjustments detected');
+  if (hurting.length === 0) hurting.push('No major negative adjustments - strong position');
+
+  document.getElementById('helpingList').innerHTML = helping.map(h => '<li style="margin-bottom:8px;">' + h + '</li>').join('');
+  document.getElementById('hurtingList').innerHTML = hurting.map(h => '<li style="margin-bottom:8px;">' + h + '</li>').join('');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function formatMoney(n) {
+  if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+  if (n >= 1000) return '$' + (n / 1000).toFixed(0) + 'K';
+  return '$' + n.toFixed(0);
+}
+
+function formatAdj(n) {
+  if (n === 0) return '0.0x';
+  return (n > 0 ? '+' : '') + n.toFixed(1) + 'x';
+}
+
+// Upgrade form
+document.getElementById('upgradeForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('upgradeBtn');
+  btn.textContent = 'Unlocking...';
+  btn.style.opacity = '0.7';
+  btn.disabled = true;
+  const name = document.getElementById('fullName').value;
+  const phone = document.getElementById('phone').value;
+  try {
+    await fetch('https://arena-api.jean-475.workers.dev/api/lead-capture/upgrade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        phone: phone,
+        source: 'satellite-hvac',
+        step: 'training-unlock'
+      })
+    });
+  } catch(err) {}
+  window.location.href = 'training.html?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name);
+});
+
+showStep(1);
+</script>
+
+<style>
+  input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; background:#C9A84C; border-radius:50%; cursor:pointer; border:none; }
+  input[type="range"]::-moz-range-thumb { width:20px; height:20px; background:#C9A84C; border-radius:50%; cursor:pointer; border:none; }
+  @media(prefers-reduced-motion:reduce){ *{transition:none !important;animation:none !important;} }
+</style>
+
+</body>
+</html>
