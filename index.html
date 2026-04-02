@@ -260,7 +260,7 @@
 
     <form id="emailForm" style="max-width:420px;margin:0 auto;">
       <input type="hidden" name="source" value="satellite-hvac">
-      <input type="hidden" name="redirect" value="calculator.html">
+      <input type="hidden" name="redirect" value="https://thearenapartners.com">
 
       <label for="email" style="display:block;text-align:left;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;margin-bottom:8px;">Email Address</label>
       <input
@@ -386,12 +386,12 @@ document.getElementById('emailForm').addEventListener('submit', async function(e
       })
     });
     if (res.ok || res.status === 201) {
-      window.location.href = 'calculator.html?email=' + encodeURIComponent(email);
+      window.location.href = 'https://thearenapartners.com?email=' + encodeURIComponent(email);
     } else {
-      window.location.href = 'calculator.html?email=' + encodeURIComponent(email);
+      window.location.href = 'https://thearenapartners.com?email=' + encodeURIComponent(email);
     }
   } catch (err) {
-    window.location.href = 'calculator.html?email=' + encodeURIComponent(email);
+    window.location.href = 'https://thearenapartners.com?email=' + encodeURIComponent(email);
   }
 });
 </script>
